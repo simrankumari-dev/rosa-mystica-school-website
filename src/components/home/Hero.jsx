@@ -1,106 +1,145 @@
-import {
-  Sparkles,
-  ArrowRight,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
-import Reveal from "../common/Reveal";
-import ArchMotif from "../common/ArchMotif";
-import "./Hero.css";
+import { heroSlides } from "../../data/heroSlides";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section id="home" className="hero-section">
-      <div className="hero-blob hero-blob-left" />
-      <div className="hero-blob hero-blob-right" />
-
-      <div className="hero-container">
-        <div className="hero-content">
-          <div className="hero-badge">
-            <Sparkles size={13} />
-            ESTABLISHED 2000 · DIOCESE OF ASANSOL
+    <section
+      id="hero"
+      className={styles.hero}
+      aria-labelledby="hero-heading"
+    >
+      {/* Background Slides */}
+      <div
+        className={styles.slides}
+        style={{
+          transform: `translateX(-${current * 100}%)`,
+        }}
+        aria-hidden="true"
+      >
+        {heroSlides.map((slide, index) => (
+          <div className={styles.slide} key={index}>
+            <img
+              src={slide.src}
+              alt=""
+              className={styles.slideImage}
+            />
           </div>
+        ))}
+      </div>
 
-          <h1 className="hero-title">
-            Illuminating Minds,
-            <br />
-            <span>Nurturing Souls.</span>
-          </h1>
+      {/* Overlay */}
+      <div
+        className={styles.overlay}
+        aria-hidden="true"
+      />
 
-          <p className="hero-description">
-            A Catholic, co-educational institution in Jamuria
-            where faith, values and academics grow together —
-            building confident, compassionate futures for every
-            child.
+      {/* Hero Content */}
+      <div className={styles.container}>
+        <div className={styles.content}>
+
+          {/* Eyebrow */}
+          <p className={styles.eyebrow}>
+            <span
+              className={styles.goldRule}
+              aria-hidden="true"
+            />
+            Welcome to Rosa Mystica School
           </p>
 
-          <div className="hero-actions">
+          {/* Main Heading */}
+          <h1
+            id="hero-heading"
+            className={styles.title}
+          >
+            Inspiring Young Minds, Shaping Bright Futures
+          </h1>
+
+          {/* Description */}
+          <p className={styles.description}>
+            Where learning meets joy, and every child discovers
+            their potential.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className={styles.actions}>
+
             <a
               href="#about"
-              className="hero-primary-button"
+              className={styles.primaryButton}
             >
-              Discover Our Story
-              <ArrowRight size={16} />
+              Explore Our School
+
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
             </a>
 
             <a
-              href="/contact"
-              className="hero-secondary-button"
+              href="#admissions"
+              className={styles.secondaryButton}
             >
-              Plan a Visit
+              Admissions
             </a>
+
           </div>
         </div>
 
-        <Reveal className="hero-card-wrapper">
-          <div className="hero-card">
-            <div className="hero-card-pattern" />
+        {/* Bottom Controls */}
+        <div className={styles.bottomControls}>
 
-            <div className="hero-card-content">
-              <ArchMotif size={84} />
-
-              <h2 className="hero-card-title">
-                Rosa Mystica School
-              </h2>
-
-              <p className="hero-card-location">
-                Bottola By Pass Road, Jamuria, West Bengal
-              </p>
-
-              <div className="hero-stats">
-                <div>
-                  <div className="hero-stat-number">25+</div>
-                  <div className="hero-stat-label">Years</div>
-                </div>
-
-                <div>
-                  <div className="hero-stat-number">1000+</div>
-                  <div className="hero-stat-label">
-                    Students
-                  </div>
-                </div>
-
-                <div>
-                  <div className="hero-stat-number">50+</div>
-                  <div className="hero-stat-label">
-                    Faculty
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Slider Dots */}
+          <div
+            className={styles.dots}
+            role="tablist"
+            aria-label="Hero slides"
+          >
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                aria-selected={current === index}
+                aria-label={`Go to slide ${index + 1}`}
+                onClick={() => setCurrent(index)}
+                className={`${styles.dot} ${
+                  current === index
+                    ? styles.activeDot
+                    : ""
+                }`}
+              />
+            ))}
           </div>
-        </Reveal>
-      </div>
 
-      <svg
-        viewBox="0 0 1440 60"
-        className="hero-wave"
-        aria-hidden="true"
-      >
-        <path
-          d="M0 60 L0 24 Q720 60 1440 24 L1440 60 Z"
-          fill="#FFFFFF"
-        />
-      </svg>
+          {/* Scroll Cue */}
+          <a
+            href="#about"
+            className={styles.scrollCue}
+            aria-label="Scroll to About section"
+          >
+            <ChevronDown
+              size={18}
+              aria-hidden="true"
+            />
+
+            <span>Scroll</span>
+          </a>
+
+        </div>
+      </div>
     </section>
   );
 }
