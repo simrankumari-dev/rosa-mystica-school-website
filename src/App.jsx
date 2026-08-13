@@ -1,5 +1,4 @@
-import TopBar from "./components/layout/TopBar";
-import Navbar from "./components/layout/Navbar";
+import Header from "./components/layout/Header";
 import Hero from "./components/home/Hero";
 import AboutPreview from "./components/home/AboutPreview"
 import WhyChooseUs from "./components/home/WhyChooseUs"
@@ -11,8 +10,8 @@ import Footer from "./components/layout/Footer";
 function App() {
   return (
     <>
-      <TopBar />
-      <Navbar/>
+     <Header />
+    <Hero />
       <Hero/>
       <AboutPreview/>
       <WhyChooseUs/>
