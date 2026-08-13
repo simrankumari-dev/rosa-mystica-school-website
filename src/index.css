@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -7,9 +9,62 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   min-width: 320px;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  background: #ffffff;
+  color: #24324b;
+}
+
+/* Design System */
+
+:root {
+  --navy: #10234f;
+  --navy-foreground: #fbf8ef;
+
+  --gold: #dba93d;
+  --gold-foreground: #10234f;
+
+  --cream: #fbf8ef;
+
+  --primary: #173267;
+  --primary-foreground: #ffffff;
+
+  --background: #ffffff;
+  --foreground: #24324b;
+
+  --card: #ffffff;
+
+  --border: #dbe1eb;
+
+  --muted-foreground: #667085;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --radius-2xl: 24px;
+
+  --shadow-soft:
+    0 4px 10px rgba(23, 50, 103, 0.04),
+    0 12px 25px rgba(23, 50, 103, 0.06);
+
+  --shadow-lift:
+    0 18px 40px rgba(23, 50, 103, 0.12);
+
+  --transition-smooth:
+    320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
 }
