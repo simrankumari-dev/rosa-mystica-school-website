@@ -1,10 +1,10 @@
 export const PRINCIPAL_MESSAGE = {
   quote:
-    "A school should feel like a second home — a place where children are safe enough to be curious and challenged enough to grow. That belief guides everything we do at Rosa Mystica.",
+    "Together — students, teachers, and parents — we form a strong and caring family. Let us continue to support each other with kindness, work hard with honesty, and aim high with confidence. Remember, small steps lead to big success.",
 
   description:
-    "Our teachers work closely with families because a child's progress is a shared responsibility. We welcome you to visit our campus, meet our faculty, and see the care behind our classrooms for yourself.",
+    "At Rosarian, we believe that each day is a new opportunity to learn, grow, and shine. Be proud of who you are and never stop believing in your dreams. Together, we grow. Together, we rise.",
 
-  principalName: "[Principal Name]",
-  designation: "Principal, Rosa Mystica School",
+  principalName: "Ashis Cyprian Toppo",
+  designation: "Principal, Rosarian School",
 };
