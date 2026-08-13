@@ -1,10 +1,19 @@
-export const PRINCIPAL_MESSAGE = {
-  quote:
-    "Together — students, teachers, and parents — we form a strong and caring family. Let us continue to support each other with kindness, work hard with honesty, and aim high with confidence. Remember, small steps lead to big success.",
+const PRINCIPAL_MESSAGE = {
+  greeting: "Dear Rosarian Family,",
 
-  description:
-    "At Rosarian, we believe that each day is a new opportunity to learn, grow, and shine. Be proud of who you are and never stop believing in your dreams. Together, we grow. Together, we rise.",
+  opening: "Warm greetings to all!",
 
-  principalName: "Ashis Cyprian Toppo",
-  designation: "Principal, Rosarian School",
+  message:
+    "At Rosarian, we believe that each day is a new opportunity to learn, grow, and shine. Together — students, teachers, and parents — we form a strong and caring family. Let us continue to support each other with kindness, work hard with honesty, and aim high with confidence.",
+
+  reminder:
+    "Remember, small steps lead to big success. Be proud of who you are and never stop believing in your dreams.",
+
+  tagline: "Together, we grow. Together, we rise.",
+
+  regards: "Warm regards,",
+
+  designation: "Principal",
 };
+
+export default PRINCIPAL_MESSAGE;

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
+/* =========================
+   GLOBAL RESET
+========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -18,53 +22,125 @@ html {
 body {
   min-width: 320px;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
-
   background: #ffffff;
   color: #24324b;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Design System */
+/* =========================
+   DESIGN SYSTEM
+   Based on Lovable design
+========================= */
 
 :root {
-  --navy: #10234f;
-  --navy-foreground: #fbf8ef;
-
-  --gold: #dba93d;
-  --gold-foreground: #10234f;
-
-  --cream: #fbf8ef;
-
-  --primary: #173267;
-  --primary-foreground: #ffffff;
-
-  --background: #ffffff;
-  --foreground: #24324b;
-
-  --card: #ffffff;
-
-  --border: #dbe1eb;
-
-  --muted-foreground: #667085;
-
+  /* Typography */
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
 
-  --radius-2xl: 24px;
+  /* Main Colors */
+  --navy: oklch(0.24 0.078 264);
+  --navy-foreground: oklch(0.985 0.008 90);
 
+  --gold: oklch(0.78 0.12 82);
+  --gold-foreground: oklch(0.24 0.06 264);
+
+  --cream: oklch(0.98 0.012 88);
+
+  /* General Semantic Colors */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.22 0.045 265);
+
+  --primary: oklch(0.29 0.093 264);
+  --primary-foreground: oklch(0.985 0.008 90);
+
+  --secondary: oklch(0.965 0.012 250);
+  --secondary-foreground: oklch(0.29 0.093 264);
+
+  --muted: oklch(0.968 0.008 250);
+  --muted-foreground: oklch(0.52 0.03 258);
+
+  --accent: oklch(0.78 0.12 82);
+  --accent-foreground: oklch(0.24 0.06 264);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.045 265);
+
+  --border: oklch(0.916 0.012 255);
+  --input: oklch(0.916 0.012 255);
+  --ring: oklch(0.29 0.093 264);
+
+  /* Radius */
+  --radius: 0.875rem;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Gradients */
+  --gradient-navy:
+    linear-gradient(
+      135deg,
+      oklch(0.24 0.078 264),
+      oklch(0.34 0.1 262)
+    );
+
+  --gradient-veil:
+    linear-gradient(
+      100deg,
+      oklch(0.18 0.06 264 / 0.92) 0%,
+      oklch(0.2 0.07 264 / 0.72) 45%,
+      oklch(0.2 0.07 264 / 0.25) 100%
+    );
+
+  /* Shadows */
   --shadow-soft:
-    0 4px 10px rgba(23, 50, 103, 0.04),
-    0 12px 25px rgba(23, 50, 103, 0.06);
+    0 1px 2px oklch(0.24 0.078 264 / 0.06),
+    0 12px 32px -18px oklch(0.24 0.078 264 / 0.28);
 
   --shadow-lift:
-    0 18px 40px rgba(23, 50, 103, 0.12);
+    0 24px 60px -28px oklch(0.24 0.078 264 / 0.45);
 
+  /* Animation */
   --transition-smooth:
     320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* =========================
+   GLOBAL TYPOGRAPHY
+========================= */
+
 h1,
 h2,
 h3 {
+  margin-top: 0;
+
   font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
 }

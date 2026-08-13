@@ -1,44 +1,73 @@
 import { Quote } from "lucide-react";
 import principalImage from "../../assets/images/principal.webp";
+
+import PRINCIPAL_MESSAGE from "../../data/principalMessage";
 import styles from "./PrincipalMessage.module.css";
-import { PRINCIPAL_MESSAGE } from "../../data/principalMessage";
 
 function PrincipalMessage() {
   return (
-    <section aria-labelledby="principal-heading" className={styles.section}>
+    <section
+      aria-labelledby="principal-heading"
+      className={styles.section}
+    >
       <div className={styles.container}>
 
+        {/* Principal Image */}
         <div className={styles.imageWrapper}>
+          <div
+            className={styles.imageBorder}
+            aria-hidden="true"
+          />
+
           <img
             src={principalImage}
-            alt={`Portrait of ${PRINCIPAL_MESSAGE.principalName}, Principal`}
-            width="1008"
-            height="1200"
+            alt="Portrait of the Principal of Rosa Mystica School seated in her office"
+            width={1008}
+            height={1200}
             loading="lazy"
             className={styles.image}
           />
         </div>
 
+        {/* Principal Message */}
         <div className={styles.content}>
+
+          {/* Section Heading */}
           <p className={styles.eyebrow}>
-            <span className={styles.goldRule} aria-hidden="true" />
+            <span
+              className={styles.goldRule}
+              aria-hidden="true"
+            />
             Message from the Principal
           </p>
 
-          <Quote className={styles.quoteIcon} aria-hidden="true" />
+          <Quote
+            className={styles.quoteIcon}
+            aria-hidden="true"
+          />
 
-          <blockquote id="principal-heading" className={styles.quote}>
-            “{PRINCIPAL_MESSAGE.quote}”
-          </blockquote>
+          {/* Message */}
+          <div
+            id="principal-heading"
+            className={styles.message}
+          >
+            <p>{PRINCIPAL_MESSAGE.greeting}</p>
 
-          <p className={styles.description}>
-            {PRINCIPAL_MESSAGE.description}
-          </p>
+            <p>{PRINCIPAL_MESSAGE.opening}</p>
 
-          <footer className={styles.footer}>
-            <p className={styles.principalName}>{PRINCIPAL_MESSAGE.principalName}</p>
-            <p className={styles.principalRole}>{PRINCIPAL_MESSAGE.designation}</p>
-          </footer>
+            <p>{PRINCIPAL_MESSAGE.message}</p>
+
+            <p>{PRINCIPAL_MESSAGE.reminder}</p>
+
+            <p>{PRINCIPAL_MESSAGE.tagline}</p>
+
+            <p>
+              {PRINCIPAL_MESSAGE.regards}
+              <br />
+              {PRINCIPAL_MESSAGE.designation}
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
