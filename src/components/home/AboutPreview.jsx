@@ -1,88 +1,81 @@
 import { ArrowRight } from "lucide-react";
+import aboutImage from "../../assets/images/about/about-classroom.webp";
+import styles from "./AboutPreview.module.css";
 
-import Reveal from "../common/Reveal";
-import ArchMotif from "../common/ArchMotif";
-
-import styles from "./About.module.css";
-
-const points = [
-  {
-    title: "Faith & Values",
-    text: "Rooted in Gospel values, compassion and service.",
-  },
-  {
-    title: "Academic Excellence",
-    text: "A strong foundation for confident, curious learners.",
-  },
-  {
-    title: "Holistic Growth",
-    text: "Sports, arts and leadership alongside academics.",
-  },
-];
-
-export default function About() {
+export default function AboutPreview() {
   return (
     <section
       id="about"
-      className={styles.aboutSection}
+      className={styles.about}
+      aria-labelledby="about-heading"
     >
-      <div className={styles.aboutContainer}>
-        <Reveal className={styles.aboutContent}>
-          <div className={styles.aboutLabel}>
-            <span className={styles.aboutLabelLine} />
-            WHO WE ARE
-          </div>
+      <div className={styles.container}>
 
-          <h2 className={styles.aboutTitle}>
-            A School With a
-            <br />
-            <span>Purpose.</span>
+        {/* Image */}
+        <div className={styles.imageWrapper}>
+          <img
+            src={aboutImage}
+            alt="Students learning together in a classroom at Rosa Mystica School"
+            className={styles.image}
+          />
+
+          {/* Established Badge */}
+          <div className={styles.badge}>
+            <span className={styles.badgeYear}>2000</span>
+            <span className={styles.badgeText}>
+              A tradition of care
+            </span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className={styles.content}>
+
+          <p className={styles.eyebrow}>
+            <span
+              className={styles.goldRule}
+              aria-hidden="true"
+            />
+            About Our School
+          </p>
+
+          <h2
+            id="about-heading"
+            className={styles.title}
+          >
+            Nurturing Young Minds Through Knowledge, Values and Faith
           </h2>
 
-          <p className={styles.aboutDescription}>
-            Rosa Mystica School is a Catholic,
-            co-educational institution established in
-            2000 under the Diocese of Asansol. We
-            believe education is more than knowledge —
-            it is about forming character, discovering
-            purpose and serving others.
+          <p className={styles.description}>
+            Rosa Mystica School (RMS) is a Christian institution
+            established by the Catholic Diocese of Asansol in 2000.
+            As a missionary institution, we place strong emphasis on
+            value-based education and the holistic upbringing of our
+            students from a very young age.
+          </p>
+
+          <p className={styles.description}>
+            Our Priests, Sisters, teachers and support staff work
+            together to nurture human, moral and spiritual values.
+            With a broad-based curriculum and a variety of
+            co-curricular activities, students are encouraged to grow
+            academically while learning to respect every religion,
+            caste and creed.
           </p>
 
           <a
             href="/about"
-            className={styles.aboutLink}
+            className={styles.button}
           >
-            More About Our School
-            <ArrowRight size={16} />
+            Learn More
+
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+              className={styles.buttonIcon}
+            />
           </a>
-        </Reveal>
 
-        <div className={styles.aboutPoints}>
-          {points.map((point, index) => (
-            <Reveal
-              key={point.title}
-              delay={index * 80}
-            >
-              <div className={styles.aboutPoint}>
-                <div className={styles.aboutPointIcon}>
-                  <ArchMotif
-                    size={38}
-                    tone="maroon"
-                  />
-                </div>
-
-                <div>
-                  <h3 className={styles.aboutPointTitle}>
-                    {point.title}
-                  </h3>
-
-                  <p className={styles.aboutPointText}>
-                    {point.text}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </div>
     </section>

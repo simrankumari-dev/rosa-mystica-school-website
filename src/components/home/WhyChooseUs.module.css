@@ -1,0 +1,194 @@
+.section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------------- HEADING ---------------- */
+
+.headingWrapper {
+  max-width: 700px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0 0 18px;
+
+  color: #1d3568;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.goldLine {
+  display: inline-block;
+
+  width: 30px;
+  height: 2px;
+
+  background: #dba93d;
+}
+
+.heading {
+  margin: 0;
+
+  color: #173267;
+
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ---------------- FEATURES ---------------- */
+
+.features {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 16px;
+
+  margin: 48px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.featureItem {
+  min-width: 0;
+}
+
+/* ---------------- CARD ---------------- */
+
+.card {
+  height: 100%;
+  min-height: 250px;
+
+  padding: 26px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe1eb;
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 10px rgba(23, 50, 103, 0.04),
+    0 12px 25px rgba(23, 50, 103, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+
+  border-color: #dba93d;
+
+  box-shadow:
+    0 10px 20px rgba(23, 50, 103, 0.08),
+    0 20px 40px rgba(23, 50, 103, 0.12);
+}
+
+/* ---------------- ICON ---------------- */
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 24px;
+
+  border-radius: 14px;
+
+  background: rgba(23, 50, 103, 0.06);
+
+  color: #173267;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.card:hover .iconBox {
+  background: #dba93d;
+  color: #173267;
+}
+
+/* ---------------- CARD TEXT ---------------- */
+
+.cardTitle {
+  margin: 0 0 12px;
+
+  color: #173267;
+
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.cardBody {
+  margin: 0;
+
+  color: #667085;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ---------------- TABLET ---------------- */
+
+@media (max-width: 1000px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heading {
+    font-size: 38px;
+  }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+
+    margin-top: 35px;
+  }
+
+  .card {
+    min-height: auto;
+  }
+}
