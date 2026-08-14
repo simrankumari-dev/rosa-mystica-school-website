@@ -1,24 +1,19 @@
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
-import Hero from "./components/home/Hero";
-import AboutPreview from "./components/home/AboutPreview"
-import WhyChooseUs from "./components/home/WhyChooseUs"
-import PrincipalMessage from "./components/home/PrincipalMessage";
-import { Academics } from "./components/home/Academics";
-import Gallery from "./components/home/Gallery";
-import Footer from "./components/layout/Footer";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
   return (
     <>
-     <Header />
-    <Hero />
-      <Hero/>
-      <AboutPreview/>
-      <WhyChooseUs/>
-      <PrincipalMessage/>
-      <Academics />
-      <Gallery />
-      <Footer />
+    <Header />
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+     
 
 
     </>
