@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Notices from "./pages/Notices";
 import NoticeDetails from "./components/notices/NoticeDetails";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
 
         {/* Individual Notice */}
         <Route path="/notices/:id" element={<NoticeDetails />} />
+        
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </>
   );
