@@ -1,6 +1,6 @@
 import AboutHero from "../components/about/AboutHero";
 import AboutIntroduction from "../components/about/AboutIntroduction";
-// import EducationalPhilosophy from "../components/about/EducationalPhilosophy";
+import EducationalPhilosophy from "../components/about/EducationalPhilosophy";
 // import AboutValues from "../components/about/AboutValues";
 // import AboutLegacy from "../components/about/AboutLegacy";
 
@@ -9,8 +9,9 @@ export default function About() {
     <>
       <AboutHero />
       <AboutIntroduction />
-      {/* <EducationalPhilosophy />
-      <AboutValues />
+      <EducationalPhilosophy />
+
+      {/* <AboutValues />
       <AboutLegacy /> */}
     </>
   );
