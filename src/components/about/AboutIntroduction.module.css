@@ -1,0 +1,185 @@
+.section {
+  width: 100%;
+  padding: 100px 0;
+
+  background: var(--background);
+}
+
+.container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+
+  gap: 80px;
+  align-items: start;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.headingContent {
+  max-width: 500px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0;
+
+  color: var(--muted-foreground);
+
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.goldRule {
+  display: block;
+
+  width: 48px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  background: var(--gold);
+}
+
+.title {
+  margin: 20px 0 0;
+
+  color: var(--navy);
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  line-height: 1.1;
+
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  max-width: 720px;
+}
+
+.paragraph {
+  margin: 0;
+
+  color: var(--muted-foreground);
+
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.paragraph + .paragraph {
+  margin-top: 20px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  margin-top: 30px;
+  padding: 13px 24px;
+
+  border-radius: 999px;
+
+  background: var(--navy);
+  color: var(--navy-foreground);
+
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 300ms ease,
+    background-color 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+
+  background: var(--gold);
+  color: var(--gold-foreground);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.arrow {
+  transition: transform 300ms ease;
+}
+
+.button:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .headingContent,
+  .content {
+    max-width: 760px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    width: min(100% - 30px, 1200px);
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .paragraph {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
