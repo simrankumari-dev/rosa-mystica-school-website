@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+
 import ACADEMICS from "../../data/academics";
 import styles from "./Academics.module.css";
 
@@ -24,14 +24,7 @@ export function Academics() {
             </h2>
           </div>
 
-          <a href="#admissions" className={styles.exploreButton}>
-            Explore Academics
-
-            <ArrowRight
-              className={styles.arrow}
-              aria-hidden="true"
-            />
-          </a>
+          
         </div>
 
         {/* Academic Cards */}
