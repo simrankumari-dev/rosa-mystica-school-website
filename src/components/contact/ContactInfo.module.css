@@ -1,0 +1,284 @@
+.section {
+  width: 100%;
+  padding: 90px 0 40px;
+  background: var(--background);
+}
+
+.container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.headingRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+
+  align-items: end;
+  gap: 60px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0;
+
+  color: var(--muted-foreground);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.goldRule {
+  width: 48px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  background: var(--gold);
+}
+
+.title {
+  margin: 18px 0 0;
+
+  color: var(--navy);
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1.05;
+
+  letter-spacing: -0.02em;
+}
+
+.headingText {
+  margin: 0 0 4px;
+
+  color: var(--muted-foreground);
+
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 48px;
+}
+
+.card {
+  position: relative;
+
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px;
+
+  overflow: hidden;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+
+  box-shadow: var(--shadow-soft);
+
+  text-decoration: none;
+
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    border-color var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+
+  border-color: color-mix(
+    in oklch,
+    var(--gold) 55%,
+    var(--border)
+  );
+
+  box-shadow: var(--shadow-lift);
+}
+
+/* =========================
+   CARD TOP
+========================= */
+
+.cardTop {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: color-mix(
+    in oklch,
+    var(--navy) 6%,
+    transparent
+  );
+
+  color: var(--navy);
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+.card:hover .iconWrapper {
+  background: var(--gold);
+  color: var(--gold-foreground);
+}
+
+.arrow {
+  color: var(--muted-foreground);
+
+  transition:
+    color 300ms ease,
+    transform 300ms ease;
+}
+
+.card:hover .arrow {
+  color: var(--gold);
+  transform: translate(3px, -3px);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.cardContent {
+  margin-top: auto;
+  padding-top: 35px;
+}
+
+.label {
+  margin: 0;
+
+  color: var(--muted-foreground);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.value {
+  margin: 10px 0 0;
+
+  color: var(--navy);
+
+  font-family: var(--font-display);
+
+  font-size: 1.18rem;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   BOTTOM ACCENT
+========================= */
+
+.bottomLine {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 3px;
+
+  background: var(--gold);
+
+  transition: width 350ms ease;
+}
+
+.card:hover .bottomLine {
+  width: 100%;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .headingRow {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 190px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 65px 0 25px;
+  }
+
+  .container {
+    width: min(100% - 30px, 1200px);
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .headingText {
+    font-size: 0.9rem;
+  }
+
+  .cards {
+    margin-top: 35px;
+    gap: 14px;
+  }
+
+  .card {
+    min-height: 180px;
+    padding: 24px;
+  }
+
+  .value {
+    font-size: 1.05rem;
+  }
+}

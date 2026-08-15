@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Notices from "./pages/Notices";
 import NoticeDetails from "./components/notices/NoticeDetails";
 import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="/notices/:id" element={<NoticeDetails />} />
         
         <Route path="/gallery" element={<Gallery />} />
+
+        <Route path="/contact" element={<Contact/>}/>
       </Routes>
     </>
   );
