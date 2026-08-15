@@ -17,8 +17,8 @@ const QUICK_LINKS = [
     href: "/notices",
   },
   {
-    label: "Events",
-    href: "/events",
+    label: "Gallery",
+    href: "/gallery",
   },
   {
     label: "Contact",
@@ -137,7 +137,7 @@ function Footer() {
           <div className={styles.storeLinks}>
 
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.aayesha.aestree"
               className={styles.storeButton}
               aria-label="Download on Google Play"
             >
@@ -152,7 +152,7 @@ function Footer() {
             </a>
 
             <a
-              href="#"
+              href="https://apps.apple.com/in/app/aestree/id6502513351"
               className={styles.storeButton}
               aria-label="Download on App Store"
             >
