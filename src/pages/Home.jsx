@@ -5,7 +5,7 @@ import WhyChooseUs from "../components/home/WhyChooseUs"
 import PrincipalMessage from "../components/home/PrincipalMessage";
 import { Academics } from "../components/home/Academics";
 import Gallery from "../components/home/Gallery";
-import Footer from "../components/layout/Footer";
+
 
 function Home(){
     return(
@@ -19,7 +19,7 @@ function Home(){
       <PrincipalMessage/>
       <Academics />
       <Gallery />
-      <Footer />
+      
 
 
        </>

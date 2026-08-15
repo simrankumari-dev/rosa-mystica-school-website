@@ -32,7 +32,7 @@ function Gallery() {
           </div>
 
           <a
-            href="#gallery"
+            href="/gallery"
             className={styles.viewButton}
           >
             View Gallery
