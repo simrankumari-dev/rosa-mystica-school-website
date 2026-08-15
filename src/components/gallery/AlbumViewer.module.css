@@ -1,0 +1,374 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 32px 20px;
+
+  overflow-y: auto;
+
+  background: rgba(16, 35, 79, 0.92);
+
+  backdrop-filter: blur(8px);
+}
+
+.albumModal {
+  position: relative;
+
+  width: min(1050px, 100%);
+
+  margin: 0 auto;
+
+  padding: 28px;
+
+  background: var(--background);
+
+  border-radius: var(--radius-2xl);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.modalHeader {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.date {
+  margin: 0;
+
+  color: var(--muted-foreground);
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.modalTitle {
+  margin: 6px 0 0;
+
+  color: var(--primary);
+
+  font-family: var(--font-display);
+
+  font-size: 1.7rem;
+
+  line-height: 1.3;
+}
+
+.closeButton {
+  position: sticky;
+  top: 8px;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: var(--background);
+
+  color: var(--primary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.closeButton:hover {
+  background: var(--secondary);
+
+  border-color: var(--primary);
+}
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photoGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-top: 24px;
+}
+
+.photoButton {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  background: var(--secondary);
+
+  cursor: pointer;
+}
+
+.photoButton:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 500ms ease;
+}
+
+.photoButton:hover .photo {
+  transform: scale(1.05);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(10, 20, 45, 0.96);
+
+  backdrop-filter: blur(10px);
+}
+
+.lightboxFigure {
+  width: min(1000px, 100%);
+
+  max-height: 88vh;
+
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.lightboxImage {
+  display: block;
+
+  max-width: 100%;
+  max-height: 76vh;
+
+  width: auto;
+  height: auto;
+
+  border-radius: 16px;
+
+  object-fit: contain;
+}
+
+.caption {
+  max-width: 850px;
+
+  margin-top: 14px;
+
+  color: rgba(251, 248, 239, 0.82);
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+/* =========================
+   LIGHTBOX CONTROLS
+========================= */
+
+.lightboxClose,
+.lightboxNav {
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(251, 248, 239, 0.12);
+
+  color: var(--navy-foreground);
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
+}
+
+.lightboxClose:hover,
+.lightboxNav:hover {
+  background: rgba(251, 248, 239, 0.22);
+}
+
+.lightboxClose {
+  top: 20px;
+  right: 20px;
+
+  width: 44px;
+  height: 44px;
+}
+
+.lightboxNav {
+  top: 50%;
+
+  width: 48px;
+  height: 48px;
+
+  transform: translateY(-50%);
+}
+
+.previousButton {
+  left: 22px;
+}
+
+.nextButton {
+  right: 22px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .overlay {
+    padding: 24px 16px;
+  }
+
+  .albumModal {
+    padding: 22px;
+  }
+
+  .photoGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .overlay {
+    padding: 14px;
+  }
+
+  .albumModal {
+    padding: 18px;
+
+    border-radius: 16px;
+  }
+
+  .modalTitle {
+    font-size: 1.3rem;
+  }
+
+  .closeButton {
+    width: 38px;
+    height: 38px;
+  }
+
+  .photoGrid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .lightbox {
+    padding: 14px;
+  }
+
+  .lightboxImage {
+    max-height: 70vh;
+  }
+
+  .lightboxClose {
+    top: 12px;
+    right: 12px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightboxNav {
+    top: auto;
+    bottom: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    transform: none;
+  }
+
+  .lightboxNav:hover {
+    transform: scale(1.05);
+  }
+
+  .previousButton {
+    left: calc(50% - 52px);
+  }
+
+  .nextButton {
+    right: calc(50% - 52px);
+  }
+}
