@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import GalleryHero from "../components/gallery/GalleryHero";
 import GalleryAlbums from "../components/gallery/GalleryAlbums";
@@ -8,47 +8,55 @@ function Gallery() {
   const [selectedAlbum, setSelectedAlbum] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  const handleOpenAlbum = (album) => {
+  const handleOpenAlbum = useCallback((album) => {
     setSelectedAlbum(album);
     setLightboxIndex(null);
-  };
+  }, []);
 
-  const handleCloseAlbum = () => {
+  const handleCloseAlbum = useCallback(() => {
     setSelectedAlbum(null);
     setLightboxIndex(null);
-  };
+  }, []);
 
-  const handleOpenPhoto = (index) => {
+  const handleOpenPhoto = useCallback((index) => {
     setLightboxIndex(index);
-  };
+  }, []);
 
-  const handleCloseLightbox = () => {
+  const handleCloseLightbox = useCallback(() => {
     setLightboxIndex(null);
-  };
+  }, []);
 
-  const handlePreviousPhoto = () => {
-    if (!selectedAlbum || lightboxIndex === null) {
-      return;
-    }
+  const handlePreviousPhoto = useCallback(() => {
+    setLightboxIndex((current) => {
+      if (
+        !selectedAlbum ||
+        current === null
+      ) {
+        return current;
+      }
 
-    const totalPhotos = selectedAlbum.photos.length;
+      const total = selectedAlbum.photos.length;
 
-    setLightboxIndex(
-      (lightboxIndex - 1 + totalPhotos) % totalPhotos
-    );
-  };
+      return (
+        (current - 1 + total) % total
+      );
+    });
+  }, [selectedAlbum]);
 
-  const handleNextPhoto = () => {
-    if (!selectedAlbum || lightboxIndex === null) {
-      return;
-    }
+  const handleNextPhoto = useCallback(() => {
+    setLightboxIndex((current) => {
+      if (
+        !selectedAlbum ||
+        current === null
+      ) {
+        return current;
+      }
 
-    const totalPhotos = selectedAlbum.photos.length;
+      const total = selectedAlbum.photos.length;
 
-    setLightboxIndex(
-      (lightboxIndex + 1) % totalPhotos
-    );
-  };
+      return (current + 1) % total;
+    });
+  }, [selectedAlbum]);
 
   return (
     <>
