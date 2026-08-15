@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import ABOUT_PAGE from "../../data/about";
 import styles from "./AboutIntroduction.module.css";
@@ -39,10 +40,10 @@ function AboutIntroduction() {
             </p>
           ))}
 
-          <a
-            href="/contact"
-            className={styles.button}
-          >
+          <Link
+  to="/contact"
+  className={styles.button}
+>
             Get in Touch
 
             <ArrowRight
@@ -50,7 +51,8 @@ function AboutIntroduction() {
               aria-hidden="true"
               className={styles.arrow}
             />
-          </a>
+            </Link>
+          
         </div>
       </div>
     </section>
