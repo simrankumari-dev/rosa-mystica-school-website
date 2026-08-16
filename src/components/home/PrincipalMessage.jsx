@@ -14,11 +14,7 @@ function PrincipalMessage() {
 
         {/* Principal Image */}
         <div className={styles.imageWrapper}>
-          <div
-            className={styles.imageBorder}
-            aria-hidden="true"
-          />
-
+          
           <img
             src={principalImage}
             alt="Portrait of the Principal of Rosa Mystica School seated in her office"

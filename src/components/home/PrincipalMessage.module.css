@@ -2,16 +2,19 @@
   width: 100%;
   background: var(--navy);
   color: var(--navy-foreground);
+
   padding: 5rem 0;
 }
 
 .container {
   width: 100%;
   max-width: 80rem;
+
   margin: 0 auto;
 
   display: grid;
   align-items: center;
+
   gap: 3rem;
 
   padding: 0 1rem;
@@ -23,44 +26,20 @@
 
 .imageWrapper {
   position: relative;
+
   width: 100%;
   max-width: 360px;
+
   aspect-ratio: 4 / 5;
 
   margin: 0 auto;
 
-  isolation: isolate;
-}
+  overflow: hidden;
 
-/* Decorative gold frame */
-.imageBorder {
-  position: absolute;
-
-  top: 10px;
-  left: 10px;
-
-  width: 100%;
-  height: 100%;
-
-  border: 1px solid var(--gold);
   border-radius: 1.5rem;
-
-  opacity: 0.45;
-
-  z-index: -1;
-
-  transition:
-    top 0.45s ease,
-    left 0.45s ease,
-    opacity 0.45s ease,
-    box-shadow 0.45s ease;
 }
 
-/* Main image */
 .image {
-  position: relative;
-  z-index: 1;
-
   display: block;
 
   width: 100%;
@@ -72,7 +51,6 @@
   border-radius: 1.5rem;
 
   transform: scale(1);
-  transform-origin: center;
 
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.12);
@@ -84,30 +62,16 @@
 }
 
 /* =========================
-   IMAGE HOVER EFFECT
+   IMAGE HOVER
 ========================= */
 
 .imageWrapper:hover .image {
-  transform: scale(1.025);
+  transform: scale(1.035);
 
   box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.28);
+    0 22px 45px rgba(0, 0, 0, 0.3);
 
   filter: saturate(1.04);
-}
-
-.imageWrapper:hover .imageBorder {
-  top: 7px;
-  left: 7px;
-
-  opacity: 0.8;
-
-  box-shadow:
-    0 0 18px color-mix(
-      in oklch,
-      var(--gold) 22%,
-      transparent
-    );
 }
 
 /* =========================
@@ -126,6 +90,7 @@
 .eyebrow {
   display: flex;
   align-items: center;
+
   gap: 0.75rem;
 
   margin: 0;
@@ -183,6 +148,7 @@
   font-family: var(--font-sans);
 
   font-size: 1rem;
+
   line-height: 1.75;
 }
 
@@ -235,12 +201,22 @@
     padding: 0 2rem;
   }
 
-  .imageBorder {
-    display: block;
-  }
-
   .message {
     font-size: 1rem;
+  }
+}
+
+/* =========================
+   LARGE DESKTOP
+========================= */
+
+@media (min-width: 1280px) {
+  .container {
+    gap: 6rem;
+  }
+
+  .imageWrapper {
+    max-width: 380px;
   }
 }
 
@@ -263,17 +239,22 @@
 
   .message {
     font-size: 0.95rem;
+
     line-height: 1.7;
   }
 
   .message p + p {
     margin-top: 1rem;
   }
+}
 
-  /* Keep the decorative frame subtle on mobile */
-  .imageBorder {
-    top: 7px;
-    left: 7px;
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .imageWrapper {
+    max-width: 250px;
   }
 }
 
@@ -282,8 +263,7 @@
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .image,
-  .imageBorder {
+  .image {
     transition: none;
   }
 
