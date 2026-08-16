@@ -22,15 +22,45 @@
   position: relative;
   width: 100%;
   max-width: 540px;
+
+  overflow: visible;
+
+  border-radius: 18px;
 }
 
+/* Image */
 .image {
   display: block;
+
   width: 100%;
   height: 520px;
+
   object-fit: cover;
 
   border-radius: 18px;
+
+  transform: scale(1);
+
+  box-shadow:
+    0 14px 35px rgba(12, 32, 74, 0.12);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms ease,
+    filter 500ms ease;
+}
+
+/* =========================
+   IMAGE HOVER
+========================= */
+
+.imageWrapper:hover .image {
+  transform: scale(1.025);
+
+  box-shadow:
+    0 24px 50px rgba(12, 32, 74, 0.2);
+
+  filter: saturate(1.05);
 }
 
 /* =========================
@@ -57,6 +87,17 @@
   border-radius: 14px;
 
   box-shadow: var(--shadow-lift);
+
+  transition:
+    transform 400ms ease,
+    box-shadow 400ms ease;
+}
+
+.imageWrapper:hover .badge {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 35px rgba(12, 32, 74, 0.25);
 }
 
 .badgeYear {
@@ -258,5 +299,33 @@
   .button {
     margin-top: 26px;
     width: 100%;
+  }
+
+  /* Keep hover effect subtle on mobile */
+  .imageWrapper:hover .image {
+    transform: scale(1.015);
+  }
+
+  .imageWrapper:hover .badge {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .badge {
+    transition: none;
+  }
+
+  .imageWrapper:hover .image {
+    transform: none;
+  }
+
+  .imageWrapper:hover .badge {
+    transform: none;
   }
 }
